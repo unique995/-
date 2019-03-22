@@ -1,0 +1,25 @@
+public class Test {
+public static void main(String[] args) {
+Scanner scan = new Scanner(System.in);
+while (scan.hasNext()) {
+int n = scan.nextInt();//录入购买苹果的数量
+System.out.println(getSum(n));
+}
+}
+public static int getSum(int n) {
+int sum = -1;
+int a = 0;
+int b = 0;
+int m = n / 8;//袋子数量最少
+for (int i = m; i >= 0; i--) {
+if ((n - 8 * i) % 6 == 0) {//最理想：用最少的袋子装最多的苹果，6个的装满，8个的也装
+满
+b = (n - 8 * i) / 6;
+a = i;
+sum = a + b;
+break;
+}
+}
+return sum;
+}
+}
