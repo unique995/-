@@ -1,41 +1,45 @@
+第a步，是将字符串s1,s2分别按字节拆分，构成一个二维数组；
+二维数组中的值如b所示，比如第一行第一列的值表示字符串s2和s1的第一个字节是否相等，若相等就是1，否则就是0，最终产生b所示的二维数组；
+分别求二维数组中斜线上的公共因子（斜线为元素a右下角值，即a[i][j]的下一个元素是a[i+1][j+1]；公共因子为1所在的位置构成的字符串）；
+对所有公共因子排序，返回最大的公共因子的值。
 import java.util.Scanner;
 public class Main{
-public static void main(String[] args) {
-// TODO Auto-generated method stub
-Scanner sc = new Scanner(System.in);
-String str1 = "";
-String str2 = "";
-while(sc.hasNext()){
-str1 = sc.next();
-str2 = sc.next();
-System.out.println(getCommonStrLength(str1, str2));
-}
-}
+  public static void main(String[] args) {
+  // TODO Auto-generated method stub
+    Scanner sc = new Scanner(System.in);
+    String str1 = "";
+    String str2 = "";
+    while(sc.hasNext()){
+      str1 = sc.next();
+      str2 = sc.next();
+      System.out.println(getCommonStrLength(str1, str2));
+    }
+  }
 public static int getCommonStrLength(String str1, String str2){
-int len1 = str1.length();
-int len2 = str2.length();
-int[][] dp = new int[len1+1][len2+1];
-for(int i=0;i<=len1;i++){
-for(int j=0;j<=len2;j++){
-dp[i][j] = 0;
-}
-}
-for(int i=1;i<=len1;i++){
-for(int j=1;j<=len2;j++){
-if(str1.charAt(i-1) == str2.charAt(j-1)){
-dp[i][j] = dp[i-1][j-1] + 1;
-}else{
-dp[i][j] = 0; //区别在这儿
-}
-}
-}
-int max = 0;
-for(int i=0;i<=len1;i++){
-for(int j=0;j<=len2;j++){
-if(max < dp[i][j])
-max = dp[i][j];
-}
-}
-return max;
-}
+    int len1 = str1.length();
+    int len2 = str2.length();
+    int[][] dp = new int[len1+1][len2+1];
+    for(int i=0;i<=len1;i++){
+        for(int j=0;j<=len2;j++){
+            dp[i][j] = 0;
+          }
+    }
+    for(int i=1;i<=len1;i++){
+        for(int j=1;j<=len2;j++){
+            if(str1.charAt(i-1) == str2.charAt(j-1)){
+                dp[i][j] = dp[i-1][j-1] + 1;
+            }else{
+                    dp[i][j] = 0; //区别在这儿
+                        }
+                    }
+           }
+      int max = 0;
+      for(int i=0;i<=len1;i++){
+          for(int j=0;j<=len2;j++){
+              if(max < dp[i][j])
+                  max = dp[i][j];
+          }
+      }
+          return max;
+      }
 }
