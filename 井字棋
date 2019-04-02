@@ -1,13 +1,13 @@
 public class Board {
-public boolean checkWon(int[][] board) {
-int arr[]=new int[3];
-int i0=0;
-int i2=2;
-for(int i=0;i<board.length;i++){
-for(int j=0;j<board[i].length;j++){
-arr[board[i][j]+1]++;
-}
-}
-return arr[i2]>arr[i0]?true:false;
-}
+  public boolean checkWon(int[][] board) {
+    int arr[]=new int[3];
+    int i0=0;
+    int i2=2;
+    for(int i=0;i<board.length;i++){
+      for(int j=0;j<board[i].length;j++){
+        arr[board[i][j]+1]++;
+      }
+    }
+        return arr[i2]>arr[i0]?true:false;
+  }
 }
