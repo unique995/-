@@ -1,0 +1,21 @@
+输入一个数n，然后输入n个数值各不相同，再输入一个值x，输出这个值在这个数组中的下标（从0开始，若不在数组中则输出-1）。
+
+import java.util.*;
+ 
+public class Main {
+	public static void main(String arg[]){
+ 
+ 
+		Scanner sc = new Scanner(System.in);
+		
+		while(sc.hasNext()){
+			Integer n =sc.nextInt();
+			List<Integer> num1 = new ArrayList<Integer>() ;
+			for(int i=0;i<n;i++){
+				num1.add(sc.nextInt());
+			}
+			Integer x=sc.nextInt();
+			System.out.println(num1.contains(x)?num1.indexOf(x):-1);	
+		}
+	}	
+}
