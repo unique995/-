@@ -11,5 +11,5 @@ public class Substr {
             hasSub[i]=s.contains(p[i]);
         }
             return hasSub;
-        }
-      }
+     }
+ }
