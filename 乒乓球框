@@ -1,0 +1,41 @@
+每一组输入对应一行输出：如果B盒中所有球的类型在A中都有，并且每种球的数量都不大于A，则输出“Yes”；否则输出“No”。
+1.求出A、B两个字符串中每个字符出现的次数
+2.比较每个字符出现的次数
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        while (scanner.hasNext()) {
+            String A = scanner.next();
+            String B = scanner.next();
+
+            int arrA[] = new int[26];
+            int arrB[] = new int[26];
+
+            for (int i = 0; i < A.length(); i++) {需要提前声明两个长度位26的数组，arrA[]和arrB[]，
+                                                   分别用来存储字符串A和B中a-z出现的次数，arrA[0]==1，
+                                                     就表示字母a再字符串A中出现了1次
+                arrA[A.charAt(i) - 'A']++;
+            }
+
+            for (int i = 0; i < B.length(); i++) {
+                arrB[B.charAt(i) - 'A']++;
+            }
+
+            boolean flag = true;
+            for (int i = 0; i < 26; i++) {
+                if (arrA[i] < arrB[i]) {
+                    flag = false;
+                    break;
+                }
+            }
+
+            if (flag) {
+                System.out.println("Yes");
+            } else {
+                System.out.println("No");
+            }
+        }
+    }
+}
