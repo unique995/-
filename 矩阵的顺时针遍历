@@ -16,6 +16,8 @@ public class Printer {
         int j = 0;
         // 定义控制要返回的数组ret的下标
         int index = 0;
+        // 定义打印过的圈数
+        int N = 0;
         // 当要返回的数组的下标超过 n*m 时，说明数组已经满了，也就是给定的mat数组中所有的数都已 
         //经遍历完了，此时结束
         while(index < ret.length) {
