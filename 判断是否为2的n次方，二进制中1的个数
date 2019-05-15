@@ -1,0 +1,23 @@
+判断一个数X是否是2的N次方。不能用循环语句
+2的N次方，其机器表示的特点就是：
+只有一位1，后面N个0. 这种特点有一个延伸：X & (X - 1)得到全0
+ public static boolean num(int n){
+        int m = n&(n-1);
+        if(m == 0){
+            return true;
+        }
+        return false;
+    }
+
+
+
+输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示
+x的二进制表示中有N位1，做一次x & (x - 1)能够屏蔽掉最低位的一个1.
+public static int NumberOf1(int n) {
+        int count = 0;
+        while (n != 0){
+            count++;
+            n &= (n-1);
+        }
+        return count;
+    }
