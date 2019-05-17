@@ -16,6 +16,7 @@ Fib(n-1) = Fib(n-2) + Fib(n-3) + Fib(n-4)…… + Fib(2) + Fib(1) + Fib(0) (2)
 n阶跳：Fib(n) = 2*Fib(n-1) = 2^(n-1)
 
 方法一：1 2和2 1代表一种
+自己感觉先后次序不同算相同的结果
 public static int jump1(int num) {
 //fibonaci:1，1，2，3，5，8，13，21……
     if(num <0) return -1;
@@ -25,6 +26,7 @@ public static int jump1(int num) {
 
 
 方法二：1 2和2 1是两种方法
+先后次序不同算不同的结果
 public class Solution {
     public int JumpFloor(int target) {
          if(target < 0){
