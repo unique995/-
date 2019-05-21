@@ -19,7 +19,7 @@ public int findKth(int[] a, int low, int high, int k){
         if(k == part-low+1){
             return a[part];
         }else if(k > part-low+1){
-            return findKth(a,part+1,high,k);
+            return findKth(a,part+1,high,k - part + low -1);
         }else
             return findKth(a,low,part-1,k);
     }
