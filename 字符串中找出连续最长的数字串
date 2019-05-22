@@ -1,0 +1,38 @@
+读入一个字符串str，输出字符串str中的连续最长字符串
+
+输入：abcd12345ed125ss123456789
+输出：123456789
+思路：
+1.把除数字之外的字符用空格代替
+2.用空格将字符串分隔开，构成一字符串数组
+3.遍历字符串数组，找到长度最长的字符串
+
+
+import java.util.*;
+import java.io.*;
+public class Main {
+public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+        String str1 = sc.nextLine();
+        List<String> list = new ArrayList<String>();
+        String str2 = str1.replaceAll("[a-z]"," ");
+        String []str3 = str2.split(" ");
+        for(int i = 0;i < str3.length;i++){
+            list.add(str3[i]);
+        }
+        List<Integer> index = new ArrayList<Integer>();
+        int max = 0;
+        for (int j = 1;j < list.size();j++){
+            if(list.get(max).length() < list.get(j).length()){
+                max = j;
+                index.clear();
+            }else if (list.get(max).length() == list.get(j).length()){
+                index.add(j);
+            }
+        }
+        index.add(max);
+        for (int k = 0;k < index.size();k++){
+            System.out.print(list.get(index.get(k)));
+        }
+    }
+}
