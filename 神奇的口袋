@@ -1,0 +1,31 @@
+有一个神奇的口袋，总的容积是40，用这个口袋可以变出一些物品，这些物品的总体积必须是40。
+John现在有n个想要得到的物品，每个物品的体积分别是a1，a2……an。
+John可以从这些物品中选择一些，如果选出的物体的总体积是40，
+那么利用这个神奇的口袋，John就可以得到这些物品。
+现在的问题是，John有多少种不同的选择物品的方式。
+输入：
+3
+20
+20
+20
+输出：
+3
+import java.util.Scanner;
+public class Main {
+	static int[] a=new int[100];
+    static int f(int n,int w){
+		if(w==0) //如果让拿的物品总重量为0，则有一种方法，即什么也不拿
+			return 1;
+		if(n<=0)//如果让拿的总重量小于等于0就无意义了，一种方法也没有
+			return 0;
+		return f(n-1,w)+f(n-1,w-a[n]);
+	}
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		for (int i = 1; i <= n; i++) {
+			a[i] = s.nextInt();
+		}
+		System.out.println(f(n,40));
+	}
+}
