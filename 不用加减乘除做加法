@@ -1,0 +1,15 @@
+（1）a和b相加不进位的结果等同于a和b做异或运算的结果。
+
+（2）a和b相加后，其进位的结果的值，等同于a和b做与运算之后左移一位的结果。
+
+
+    public int Add(int num1,int num2) {
+        int sum,temp;
+        do {
+            sum = num1 ^ num2;
+            temp = (num1 & num2) << 1;
+            num1 = sum;
+            num2 = temp;
+        }while (num2 != 0);
+        return num1;
+    }
