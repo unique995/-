@@ -4,22 +4,28 @@ Fibonacci数列就形如：0, 1, 1, 2, 3, 5, 8, 13, ...，
 每一步你可以把当前数字X变为X-1或者X+1，
 现在给你一个数N求最少需要多少步可以变为Fibonacci数。
 
+解题思路：
+我们可以只用三个变量 a b c分别表示每次迭代中的 A[n]，A[n-1]，A[n-2]；
+计算数列的过程中，如果发现某一项大于等于n，则迭代就可以停止了。此时n的值介于最后的
+两项之间。这时候只要找到n和这两项距离最小者即可
+
+
 import java.util.*;
 public class Main {
   public static void main(String[] args) throws Exception{
-Scanner scanner = new Scanner(System.in);
-int n = 0;
-int a = 0,b = 1,c = 1;
-if (scanner.hasNextInt()) {
-n = scanner.nextInt();
-}
-while (c < n) {
-a = b;
-b = c;
-c = a + b;
-}
-int dis1 = n - b;
-int dis2 = c - n;
-System.out.println(dis1<dis2?dis1:dis2);
-}
+    Scanner scanner = new Scanner(System.in);
+    int n = 0;
+    int a = 0,b = 1,c = 1;
+    if (scanner.hasNextInt()) {
+      n = scanner.nextInt();
+    }
+    while (c < n) {
+      a = b;
+      b = c;
+      c = a + b;
+    }
+    int dis1 = n - b;
+    int dis2 = c - n;
+  System.out.println(dis1<dis2?dis1:dis2);
+  }
 }
