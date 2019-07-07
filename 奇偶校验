@@ -1,5 +1,6 @@
 输入一个字符串，然后对每个字符进行奇校验，最后输出校验后的二进制数(如'3’，输出：10110011)
-import java.util.*; public class Main{
+import java.util.*; 
+public class Main{
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
         while(in.hasNext()){
